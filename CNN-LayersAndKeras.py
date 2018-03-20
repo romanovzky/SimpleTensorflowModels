@@ -175,7 +175,7 @@ with tf.Session() as sess:
 
 import keras
 from keras.models import Sequential
-from keras.layers import Dense, Dropout, Flatten, Conv2D, MaxPooling2D
+from keras.layers import Dense, Dropout, Flatten, Conv2D, AveragePooling2D
 from keras.optimizers import Adam
 from sklearn.metrics import accuracy_score
 from keras import backend as K
@@ -186,12 +186,12 @@ model = Sequential()
 
 model.add(Conv2D(64, (3, 3), activation='relu', input_shape=input_shape,padding='same'))
 model.add(Conv2D(64, (3, 3), activation='relu',padding='same'))
-model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(AveragePooling2D(pool_size=(2, 2)))
 model.add(Dropout(0.25))
 
 model.add(Conv2D(32, (3, 3), activation='relu',padding='same'))
 model.add(Conv2D(32, (3, 3), activation='relu',padding='same'))
-model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(AveragePooling2D(pool_size=(2, 2)))
 model.add(Dropout(0.25))
 
 model.add(Flatten())
